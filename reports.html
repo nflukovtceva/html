@@ -3,21 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <title>Reports</title>
 </head>
 <body>
-    <!-- <section id="gallery">
-        <h1> Gallery </h1>    
-        <img src="" alt="" width="" height="">
-        <br>
-        <br>
-        <img src="" alt="" width="" height="">
-        <br>
-        <br>
-        <img src="" alt="" width="" height="">
-        <br>
-        <br>
-    </section>-->
+    <hr>
+    <section id="report">
+        <form action="/reports-results" method="POST">
+            <h1 align="center" class="page-header"> Report Information</h1>
+                <section class="All Data">
+                    <input type="button" value="Select All Data">
+                    <input type="button" value="Select Artist">
+                    <input type="button" value="Select Art">
+                    <input type="button" value="Select Location">
+                    <input type="button" value="Select Recipient">
+                    <input type="button" value="Select Gift">
+                    <input type="button" value="Select Loan">
+                </section>
+            </form>
+            <h3 align="center">Artwork Report Options</h3>
+            <button onclick="ArtworkByArtist()">Artwork By Artist</button>
+            <div class="selection" id=ArtworkByArtist>
+            <h4>Artwork By Artist:</h4>
+            <form action="/reports-results" method="POST">
+                <section class="By Artist">
+                    
+                        <label for="Fname">Artist's first name</label>
+                        <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                    <br>
+                        <label for="Lname">Artist's last name</label>
+                        <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                    <br>
+                        <input type="hidden" id= ButtonID name="ButtonID" value="1" >
+                        <input type="submit" value="Submit">
+                </section>
+            </form>
+            </div>
+            <h4>Artwork By Artwork Name:</h4>
+                <section class="By Art Name">
+                        <label for="Title">Artwork Name</label>
+                        <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                    <br>
+                        <input type="submit" value="Submit">
+                </section> 
+            <h4>Artwork By Location:</h4>
+                <section class="By Location">
+                        <label for="City">City</label>
+                                <select name="City" id="City">
+                                    <option value="Anchorage">Anchorage</option>
+                                    <option value="Nome">Nome</option>
+                                </select>
+                    <br>
+                    <br>
+                        <label for="Building">Building</label>
+                                <select name="Building" id="Building">
+                                    <option value="Anchorage1">Anchorage1</option>
+                                    <option value="Nome1">Nome1</option>
+                                </select>
+                    <br>
+                    <br>
+                        <label for="Room">Room</label>
+                        <input type="number" class="form-control" name="Room" id="Room" min="100" max="9999999" placeholder="Room Number">
+                    <br>
+                        <input type="submit" value="Submit">
+                </section>  
+                <h4>Artwork By Value:</h4>
+                <section class="By Value">
+                        <label for="Value">What is it worth?</label>
+                        <input type="number" class="form-control" name="Value" id="Value" min="0" max="9999999" step=".01" placeholder="Value">
+                    <br>
+                        <input type="submit" value="Submit">
+
+            <h3 align="center">Artist Report Option</h3>
+            <h4>Artist by Artist Name:</h4>
+                <section class="By Artist">
+                    <label for="Fname">Artist's first name</label>
+                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                <br>
+                    <label for="Lname">Artist's last name</label>
+                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                <br>
+                    <input type="submit" value="Submit">
+                </section>
+            
+            <h3 align="center">Location Report Option</h3>
+            <h4>Location by Artwork:</h4>
+                <section class="By Artwork">
+                    <label for="Title">Artwork Name</label>
+                    <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                <br>
+                    <input type="submit" value="Submit">
+                </section> 
+
+            <h3 align="center">Recipient Report Option</h3>
+            <h4>Recipient by Recipient Name:</h4>
+                <section class="By Recipient">
+                    <label for="Fname">Recipient's first name</label>
+                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                <br>
+                    <label for="Lname">Recipient's last name</label>
+                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                <br>
+                    <input type="submit" value="Submit">
+                </section>
+
+    </form>
+    
+    <script>
+    function ArtworkByArtist() {
+    var x = document.getElementById("ArtworkByArtist");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+</head>
+<body>
+    
     <hr>
     <section id="report">
         <form action="/reports-results" method="POST">
@@ -25,7 +154,7 @@
             <section class="All Data">
                 <input type="button" value="Select All Data">
             </section>
-<!-- All form inputs for Artist Information seperated by line breaks-->
+
             <h3>Artist Information</h3>
             <section class="Artist Information">
                     <input type="button" value="Select all artist info">
@@ -60,7 +189,7 @@
                     <label for="Shareholder">Is the artist a shareholder?</label>
                     <input type="checkbox" name="Shareholder" id="Shareholder">
             </section> 
-<!-- All form inputs for Art Information seperated for line breaks-->
+
             <h3>Art Information</h3>
             <section class="Art Information">
                     <input type="button" value="Select all art info">
@@ -97,7 +226,7 @@
                     <label for="Description">Any extra information?</label>
                     <textarea id="Description" name="Description" rows="3" cols="40"></textarea>
             </section>
-<!-- All form inputs for Art Location Information seperated for line breaks-->
+
             <h3>Art Location Information</h3>
             <section class="Art Location">
                     <input type="button" value="Select all art location info">
@@ -120,7 +249,7 @@
                     <label for="Description">Any extra information?</label>
                     <textarea id="Description" name="Description" rows="3" cols="40"></textarea>
             </section>
-<!-- Recipient Fields -->
+
             <h3>Recipient</h3>
             <section class="Recipient">
                     <input type="button" value="Select all recipient info">
@@ -152,7 +281,7 @@
                     <label for="Zip">Recipient's zip code:</label>
                     <input type="text" name="Zip[RZip][]" id="Zip" minlength="5" maxlength="5">
             </section>
-<!-- Gift or Loan -->
+
             <h3>Gift</h3>
             <section class="Gift">
                     <input type="button" value="Select all">
@@ -173,7 +302,7 @@
             </section>
 
 
-<!-- Basic submission button-->
+
         <hr>
         <section class="submission">
             <input type="submit" id='query' value="Get Results">
@@ -183,7 +312,6 @@
 </html>
 
 
-<!--
 	<Section>
 	'Select * from *'
 	'Select * from Artist'
