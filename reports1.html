@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+</head>
+<body>
+    <hr>
+    <section id="report">
+        <form action="/reports-results" method="POST">
+            <h1 align="center" class="page-header"> Report Information</h1>
+                <section class="All Data">
+                    <input type="button" value="Select All Data">
+                    <input type="button" value="Select Artist">
+                    <input type="button" value="Select Art">
+                    <input type="button" value="Select Location">
+                    <input type="button" value="Select Recipient">
+                    <input type="button" value="Select Gift">
+                    <input type="button" value="Select Loan">
+                </section>
+            <h3 align="center">Artwork Report Options</h3>
+            <h4>Artwork By Artist:</h4>
+                <section class="By Artist">
+                        <label for="Fname">Artist's first name</label>
+                        <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                    <br>
+                        <label for="Lname">Artist's last name</label>
+                        <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                    <br>
+                        <input type="submit" value="Submit">
+                </section>
+            <h4>Artwork By Artwork Name:</h4>
+                <section class="By Art Name">
+                        <label for="Title">Artwork Name</label>
+                        <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                    <br>
+                        <input type="submit" value="Submit">
+                </section> 
+            <h4>Artwork By Location:</h4>
+                <section class="By Location">
+                        <label for="City">City</label>
+                                <select name="City" id="City">
+                                    <option value="Anchorage">Anchorage</option>
+                                    <option value="Nome">Nome</option>
+                                </select>
+                    <br>
+                    <br>
+                        <label for="Building">Building</label>
+                                <select name="Building" id="Building">
+                                    <option value="Anchorage1">Anchorage1</option>
+                                    <option value="Nome1">Nome1</option>
+                                </select>
+                    <br>
+                    <br>
+                        <label for="Room">Room</label>
+                        <input type="number" class="form-control" name="Room" id="Room" min="100" max="9999999" placeholder="Room Number">
+                    <br>
+                        <input type="submit" value="Submit">
+                </section>  
+                <h4>Artwork By Value:</h4>
+                <section class="By Value">
+                        <label for="Value">What is it worth?</label>
+                        <input type="number" class="form-control" name="Value" id="Value" min="0" max="9999999" step=".01" placeholder="Value">
+                    <br>
+                        <input type="submit" value="Submit">
+
+            <h3 align="center">Artist Report Option</h3>
+            <h4>Artist by Artist Name:</h4>
+                <section class="By Artist">
+                    <label for="Fname">Artist's first name</label>
+                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                <br>
+                    <label for="Lname">Artist's last name</label>
+                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                <br>
+                    <input type="submit" value="Submit">
+                </section>
+            
+            <h3 align="center">Location Report Option</h3>
+            <h4>Location by Artwork:</h4>
+                <section class="By Artwork">
+                    <label for="Title">Artwork Name</label>
+                    <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                <br>
+                    <input type="submit" value="Submit">
+                </section> 
+
+            <h3 align="center">Recipient Report Option</h3>
+            <h4>Recipient by Recipient Name:</h4>
+                <section class="By Recipient">
+                    <label for="Fname">Recipient's first name</label>
+                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                <br>
+                    <label for="Lname">Recipient's last name</label>
+                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                <br>
+                    <input type="submit" value="Submit">
+                </section>
+
+    </form>
+</body>
+</html>
+
+
+<!--
+	<Section>
+	'Select * from *'
+	'Select * from Artist'
+	'Select * from Art'
+	'Select * from Location'
+	'Select * from Recipient'
+	'Select * from Gift'
+	'Select * from Loan'
+    </Section>
+    
+	<Section>
+	'Artwork by Artist'
+	'Artwork by Art Name'
+    'Artwork by Location'
+    'Artwork by Value'
+    </Section> 
+    
+	<Section>
+	'Location by Artwork'
+    </Section>
+    
+	<section>
+	'Artist by Artist Name'
+    </section>
+    
+    'Recipient by Recipient Name' 
+    
+
+	Artwork report options
+	By Value (button)
+	Value = 900
+    submit (3)
+    
+	By Artist (button)
+	Name =?
+    submit  (4)
+    
+	By Art(button)
+	Art Name =?
+    submit
+    
+	By Location(Button)
+	Location =?
+	submit
+-->
