@@ -4,217 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/reports.css">
-    <title>Rebuild</title>
+    <title>Reports</title>
 </head>
 <body>
-  <div class="logo"></div>
-  <br>
-
-
+    
     <section id="report">
-        <!--<form class="cascade" action="/reports-results" method="POST">-->
-        <div class="top">
-            <h1 align="center" class="page-header"> Export All Data Options</h1>
+        <form action="/reports-results" method="POST">
+            <h1 align="center" class="page-header"> Report Information</h1>
                 <section class="All Data">
-                    <!--<button class="top" type="button" value="Select All Data">Export All</button>-->
-                    <button class="top" type="button" value="Select Artist">Export Artist</button>
-                    <button class="top" type="button" value="Select Art">Export Artwork</button>
-                    <button class="top" type="button" value="Select Location">Export Location</button>
-                    <button class="top" type="button" value="Select Recipient">Export Recipient</button>
-                    <button class="top" type="button" value="Select Gift">Export Gifted</button>
-                    <button class="top" type="button" value="Select Loan">Export Loaned</button>
+                    <!--<input type="submit" id="ButtonID" name="ButtonID" value="All Data">-->
+                    <input type="submit" id="ButtonID" name="ButtonID" value="All Artist">
+                    <input type="submit" id="ButtonID" name="ButtonID" value="All Art">
+                    <input type="submit" id="ButtonID" name="ButtonID" value="All Location">
+                    <input type="submit" id="ButtonID" name="ButtonID" value="All Recipient">
+                    <input type="submit" id="ButtonID" name="ButtonID" value="All Gifted">
+                    <input type="submit" id="ButtonID" name="ButtonID" value="All Loaned">
                 </section>
-                </div>
-        <!--</form>-->
-        <br>
-        <br>
-
-<!-- Modal Work begins-->
-<!-- Buttons for the Modals-->
-<h1 align="center">Report by Attributes</h1>
-
-
-        <button class="btn" data-modal="ArtworkByArtist">Artwork by Artist</button>
-        <br>
-        <br>
-        <button class="btn" data-modal="ArtworkByTitle">Artwork By Title</button>
-        <br>
-        <br>
-        <button class="btn" data-modal="ArtworkByLocation">Artwork By Location</button>
-        <br>
-        <br>
-        <button class="btn" data-modal="ArtworkByValue">Artwork By Value</button>
-        <br>
-        <br>
-        <button class="btn" data-modal="LocationbyArtwork">Location by Artwork</button>
-        <br>
-        <br>
-        <button class="btn" data-modal="RecipientbyRecipientName">Recipient by Recipient Name</button>
-
-        <div id="ArtworkByArtist" class="modal">
-          <div class="modal-content">
-            <div class="popup">
-              <a class="close">&times;</a>
-                <form method="POST" action="/reports-results">
-                    <section class="ArtworkByArtist">
-                          <h2>Artwork By Artist:</h2>
-                          <div>
-                                    <label for="Fname">Artist's first name</label>
-                                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
-                                <br>
-                                <br>
-                                    <label for="Lname">Artist's last name</label>
-                                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
-                                <br>
-                                    <input type="hidden" id= ButtonID name="ButtonID" value="1" >
-                                    <button type="submit" href="/">Search</button>
-
-                              </div>
-                            </section>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-<!--Artwork by Title-->
-                  <div id="ArtworkByTitle" class="modal">
-                    <div class="modal-content">
-                      <div class="popup">
-                        <a class="close">&times;</a>
-                          <form method="POST" action="/reports-results">
-                            <section class="ArtworkByTitle">
-                              <h2>Artwork By Title:</h2>
-                                <div>
-                                  <label for="Title">Title</label>
-                                  <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
-                                  <br>
-                                  <input type="hidden" id= ButtonID name="ButtonID" value="2" >
-                                  <button type="submit" href="/">Search</button>
-                                </div>
-                              </section>
+        </form>
+            <h3 align="center">Artwork Report Options</h3>
+                <button onclick="ArtworkByArtist()">Artwork By Artist</button>
+                    <div class="selection" id=ArtworkByArtist>
+                        <h4>Artwork By Artist:</h4>
+                            <form action="/reports-results" method="POST">
+                                <section class="By Artist">
+                                        <label for="Fname">Artist's first name</label>
+                                        <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                                    <br>
+                                    <br>
+                                        <label for="Lname">Artist's last name</label>
+                                        <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                                    <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="Artwork By Artist" >
+                                        <input type="submit" value="Submit">
+                                </section>
                             </form>
-                          </div>
-                        </div>
-                      </div>
-<!--Artwork by Location-->
-                      <div id="ArtworkByLocation" class="modal">
-                        <div class="modal-content">
-                          <div class="popup">
-                            <a class="close">&times;</a>
-                              <form method="POST" action="/reports-results">
-                                <section class="ArtworkByLocation">
-                                  <h2>Art by Location:</h2>
-                                    <div>
-                                      <label for="City">City</label>
-                                              <select name="City" id="City">
-                                                  <option value="Anchorage">Anchorage</option>
-                                                  <option value="Nome">Nome</option>
-                                              </select>
-                                  <br>
-                                  <br>
-                                      <label for="Building">Building</label>
-                                              <select name="Building" id="Building">
-                                                  <option value="Anchorage1">Anchorage1</option>
-                                                  <option value="Nome1">Nome1</option>
-                                              </select>
-                                  <br>
-                                  <br>
-                                      <label for="Room">Room</label>
-                                      <input type="number" class="form-control" name="Room" id="Room" min="100" max="9999999" placeholder="Room Number">
-                                  <br>
-                                      <input type="hidden" id= ButtonID name="ButtonID" value="3" >
-                                      <button type="submit" href="/">Search</button>
-                                    </div>
-                                  </section>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-  <!--Artwork by Value-->
-                        <div id="ArtworkByValue" class="modal">
-                          <div class="modal-content">
-                            <div class="popup">
-                              <a class="close">&times;</a>
-                                <form method="POST" action="/reports-results">
-                                  <section class="ArtworkByValue">
-                                    <h2>Artwork By Value:</h2>
-                                      <div>
-                                        <label for="Value">What is it worth?</label>
+                    </div>
+                <button onclick="ArtworkByArtwork()">Artwork By Artwork Name</button>
+                    <div class="selection" id=ArtworkByArtwork>
+                        <h4>Artwork By Artwork Name:</h4>
+                            <form action="/reports-results" method="POST">
+                                <section class="By Art Name">
+                                        <label for="Title">Artwork Name</label>
+                                        <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                                    <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="Artwork by Artwork Name" >  
+                                        <input type="submit" value="Submit">
+                                </section> 
+                            </form>
+                    </div>
+                <button onclick="ArtworkByLocation()">Artwork By Location</button>
+                    <div class="selection" id=ArtworkByLocation>
+                        <h4>Artwork By Location:</h4>
+                            <form action="/reports-results" method="POST">
+                                <section class="By Location">
+                                        <label for="City">City</label>
+                                                <select name="City" id="City">
+                                                    <option value="Anchorage">Anchorage</option>
+                                                    <option value="Nome">Nome</option>
+                                                </select>
+                                    <br>
+                                    <br>
+                                        <label for="Building">Building</label>
+                                                <select name="Building" id="Building">
+                                                    <option value="Anchorage1">Anchorage1</option>
+                                                    <option value="Nome1">Nome1</option>
+                                                </select>
+                                    <br>
+                                    <br>
+                                        <label for="Room">Room</label>
+                                        <input type="number" class="form-control" name="Room" id="Room" min="1" max="9999999" placeholder="Room Number">
+                                    <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="Artwork By Location Name" >
+                                        <input type="submit" value="Submit">
+                                </section>  
+                            </form>
+                    </div>   
+                <button onclick="ArtworkByValue()">Artwork By Value</button>
+                    <div class="selection" id=ArtworkByValue>
+                        <h4>Artwork By Value:</h4>
+                            <form action="/reports-results" method="POST">
+                                <section class="By Value">
+                                        <label for="Type">Value Option:</label>
+                                        <select name="Option" id="ValueType">
+                                            <option value="Equal to">=</option>                                            
+                                            <option value="Greater then">&gt;</option>
+                                            <option value="Greater then or Equal to">&gt;=</option>
+                                            <option value="Less then">&lt;</option>
+                                            <option value="Less then or Equal to">&lt;=</option>
+                                        </select>
+                                    <br>
+                                        <label for="Value">Amount:</label>
                                         <input type="number" class="form-control" name="Value" id="Value" min="0" max="9999999" step=".01" placeholder="Value">
-                                        <br>
-                                        <input type="hidden" id= ButtonID name="ButtonID" value="4" >
-                                        <button type="submit" href="/">Search</button>
-                                      </div>
-                                    </section>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-<!--Location by Artwork-->
-                            <div id="LocationbyArtwork" class="modal">
-                              <div class="modal-content">
-                                <div class="popup">
-                                  <a class="close">&times;</a>
-                                    <form method="POST" action="/reports-results">
-                                      <section class="LocationbyArtwork">
-                                        <h2>Artwork By Title:</h2>
-                                          <div>
-                                            <label for="Title">Artwork Name</label>
-                                            <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
-                                            <br>
-                                            <input type="hidden" id= ButtonID name="ButtonID" value="6" >
-                                            <button type="submit" href="/">Search</button>
-                                          </div>
-                                        </section>
-                                      </form>
-                                    </div>
-                                  </div>
-                                  </div>
-<!--Gift and Loan Ricipient -->
-                                  <div id="RecipientbyRecipientName" class="modal">
-                                    <div class="modal-content">
-                                      <div class="popup">
-                                        <a class="close">&times;</a>
-                                          <form method="POST" action="/reports-results">
-                                            <section class="RecipientbyRecipientName">
-                                              <h2>Artwork By Title:</h2>
-                                                <div>
-                                                <label for="Fname">Recipient's first name</label>
-                                                <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
-                                            <br>
-                                                <label for="Lname">Recipient's last name</label>
-                                                <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
-                                            <br>
-                                                <input type="hidden" id= ButtonID name="ButtonID" value="6" >
-                                                <button type="submit" href="/">Search</button>
-                                                </div>
-                                              </section>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
+                                    <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="Artwork By Value" >
+                                        <input type="submit" value="Submit">
+                                </section>  
+                            </form>
+                    </div>
+            <h3 align="center">Artist Report Option</h3>
+                <button onclick="ArtistByArtist()">Artist by Artist Name</button>
+                    <div class="selection" id=ArtistByArtist>
+                        <h4>Artist by Artist Name:</h4>
+                            <form action="/reports-results" method="POST">
+                                <section class="By Artist">
+                                        <label for="Fname">Artist's first name</label>
+                                        <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                                    <br>
+                                        <label for="Lname">Artist's last name</label>
+                                        <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                                    <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="Artist By Artist Name" >
+                                        <input type="submit" value="Submit">
+                                </section>
+                            </form>
+                    </div>
+            <h3 align="center">Location Report Option</h3>
+                <button onclick="LocationByArtwork()">Location by Artwork</button>
+                    <div class="selection" id=LocationByArtwork>
+                        <h4>Location by Artwork:</h4>
+                            <form action="/reports-results" method="POST">
+                                <section class="By Artwork">
+                                        <label for="Title">Artwork Name</label>
+                                        <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                                    <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="Location By Artwork Name" >
+                                        <input type="submit" value="Submit">
+                                </section> 
+                            </form>
+                    </div>
+            <h3 align="center">Recipient Report Option</h3>
+                <button onclick="RecipientByRecipient()">Recipient by Recipient Name</button>
+                    <div class="selection" id=RecipientByRecipient>
+                        <h4>Recipient by Recipient Name:</h4>
+                            <form action="/reports-results" method="POST">
+                                <section class="By Recipient">
+                                        <label for="Fname">Recipient's first name</label>
+                                        <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                                    <br>
+                                        <label for="Lname">Recipient's last name</label>
+                                        <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                                    <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="Recipient by Recipient Name" >
+                                        <input type="submit" value="Submit">
+                                </section>
+                            </form>
+                    </div> 
+        </section>   
+<script>
+    function ArtworkByArtist() {
+    var x = document.getElementById("ArtworkByArtist");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
+    
+<script>
+    function ArtworkByArtwork() {
+    var x = document.getElementById("ArtworkByArtwork");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
 
 <script>
-     var modalBtns = [...document.querySelectorAll(".btn")];
-     modalBtns.forEach(function(btn){
-       btn.onclick = function() {
-         var modal = btn.getAttribute('data-modal');
-         document.getElementById(modal).style.display = "block";
-       }
-     });
+    function ArtworkByLocation() {
+    var x = document.getElementById("ArtworkByLocation");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
 
-     var closeBtns = [...document.querySelectorAll(".close")];
-     closeBtns.forEach(function(btn){
-       btn.onclick = function() {
-         var modal = btn.closest('.modal');
-         modal.style.display = "none";
-       }
-     });
+<script>
+    function ArtworkByValue() {
+    var x = document.getElementById("ArtworkByValue");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
 
-     window.onclick = function(event) {
-       if (event.target.className === "modal") {
-         event.target.style.display = "none";
-       }
-     }
-   </script>
- </body>
+<script>
+    function ArtistByArtist() {
+    var x = document.getElementById("ArtistByArtist");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
+
+<script>
+    function LocationByArtwork() {
+    var x = document.getElementById("LocationByArtwork");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
+
+<script>
+    function RecipientByRecipient() {
+    var x = document.getElementById("RecipientByRecipient");
+    if (x.style.display === "none") {
+        x.style.display = "block";} 
+    else {
+        x.style.display = "none";}}
+    </script>
+
+</body>
 </html>
