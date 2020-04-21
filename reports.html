@@ -3,353 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <title>Reports</title>
+    <link rel="stylesheet" type="text/css" href="../css/reports.css">
+    <title>Rebuild</title>
 </head>
 <body>
-    <hr>
+  <div class="logo"></div>
+  <br>
+
+
     <section id="report">
-        <form action="/reports-results" method="POST">
-            <h1 align="center" class="page-header"> Report Information</h1>
+        <!--<form class="cascade" action="/reports-results" method="POST">-->
+        <div class="top">
+            <h1 align="center" class="page-header"> Export All Data Options</h1>
                 <section class="All Data">
-                    <input type="button" value="Select All Data">
-                    <input type="button" value="Select Artist">
-                    <input type="button" value="Select Art">
-                    <input type="button" value="Select Location">
-                    <input type="button" value="Select Recipient">
-                    <input type="button" value="Select Gift">
-                    <input type="button" value="Select Loan">
+                    <!--<button class="top" type="button" value="Select All Data">Export All</button>-->
+                    <button class="top" type="button" value="Select Artist">Export Artist</button>
+                    <button class="top" type="button" value="Select Art">Export Artwork</button>
+                    <button class="top" type="button" value="Select Location">Export Location</button>
+                    <button class="top" type="button" value="Select Recipient">Export Recipient</button>
+                    <button class="top" type="button" value="Select Gift">Export Gifted</button>
+                    <button class="top" type="button" value="Select Loan">Export Loaned</button>
                 </section>
-            </form>
-            <h3 align="center">Artwork Report Options</h3>
-            <button onclick="ArtworkByArtist()">Artwork By Artist</button>
-            <div class="selection" id=ArtworkByArtist>
-            <h4>Artwork By Artist:</h4>
-            <form action="/reports-results" method="POST">
-                <section class="By Artist">
-                    
-                        <label for="Fname">Artist's first name</label>
-                        <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
-                    <br>
-                        <label for="Lname">Artist's last name</label>
-                        <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
-                    <br>
-                        <input type="hidden" id= ButtonID name="ButtonID" value="1" >
-                        <input type="submit" value="Submit">
-                </section>
-            </form>
-            </div>
-            <h4>Artwork By Artwork Name:</h4>
-                <section class="By Art Name">
-                        <label for="Title">Artwork Name</label>
-                        <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
-                    <br>
-                        <input type="submit" value="Submit">
-                </section> 
-            <h4>Artwork By Location:</h4>
-                <section class="By Location">
-                        <label for="City">City</label>
-                                <select name="City" id="City">
-                                    <option value="Anchorage">Anchorage</option>
-                                    <option value="Nome">Nome</option>
-                                </select>
-                    <br>
-                    <br>
-                        <label for="Building">Building</label>
-                                <select name="Building" id="Building">
-                                    <option value="Anchorage1">Anchorage1</option>
-                                    <option value="Nome1">Nome1</option>
-                                </select>
-                    <br>
-                    <br>
-                        <label for="Room">Room</label>
-                        <input type="number" class="form-control" name="Room" id="Room" min="100" max="9999999" placeholder="Room Number">
-                    <br>
-                        <input type="submit" value="Submit">
-                </section>  
-                <h4>Artwork By Value:</h4>
-                <section class="By Value">
-                        <label for="Value">What is it worth?</label>
-                        <input type="number" class="form-control" name="Value" id="Value" min="0" max="9999999" step=".01" placeholder="Value">
-                    <br>
-                        <input type="submit" value="Submit">
+                </div>
+        <!--</form>-->
+        <br>
+        <br>
 
-            <h3 align="center">Artist Report Option</h3>
-            <h4>Artist by Artist Name:</h4>
-                <section class="By Artist">
-                    <label for="Fname">Artist's first name</label>
-                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
-                <br>
-                    <label for="Lname">Artist's last name</label>
-                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
-                <br>
-                    <input type="submit" value="Submit">
-                </section>
-            
-            <h3 align="center">Location Report Option</h3>
-            <h4>Location by Artwork:</h4>
-                <section class="By Artwork">
-                    <label for="Title">Artwork Name</label>
-                    <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
-                <br>
-                    <input type="submit" value="Submit">
-                </section> 
+<!-- Modal Work begins-->
+<!-- Buttons for the Modals-->
+<h1 align="center">Report by Attributes</h1>
 
-            <h3 align="center">Recipient Report Option</h3>
-            <h4>Recipient by Recipient Name:</h4>
-                <section class="By Recipient">
-                    <label for="Fname">Recipient's first name</label>
-                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
-                <br>
-                    <label for="Lname">Recipient's last name</label>
-                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
-                <br>
-                    <input type="submit" value="Submit">
-                </section>
 
-    </form>
-    
-    <script>
-    function ArtworkByArtist() {
-    var x = document.getElementById("ArtworkByArtist");
-    if (x.style.display === "none") {
-        x.style.display = "block";} 
-    else {
-        x.style.display = "none";}}
-    </script>
-</body>
+        <button class="btn" data-modal="ArtworkByArtist">Artwork by Artist</button>
+        <br>
+        <br>
+        <button class="btn" data-modal="ArtworkByTitle">Artwork By Title</button>
+        <br>
+        <br>
+        <button class="btn" data-modal="ArtworkByLocation">Artwork By Location</button>
+        <br>
+        <br>
+        <button class="btn" data-modal="ArtworkByValue">Artwork By Value</button>
+        <br>
+        <br>
+        <button class="btn" data-modal="LocationbyArtwork">Location by Artwork</button>
+        <br>
+        <br>
+        <button class="btn" data-modal="RecipientbyRecipientName">Recipient by Recipient Name</button>
+
+        <div id="ArtworkByArtist" class="modal">
+          <div class="modal-content">
+            <div class="popup">
+              <a class="close">&times;</a>
+                <form method="POST" action="/reports-results">
+                    <section class="ArtworkByArtist">
+                          <h2>Artwork By Artist:</h2>
+                          <div>
+                                    <label for="Fname">Artist's first name</label>
+                                    <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                                <br>
+                                <br>
+                                    <label for="Lname">Artist's last name</label>
+                                    <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                                <br>
+                                    <input type="hidden" id= ButtonID name="ButtonID" value="1" >
+                                    <button type="submit" href="/">Search</button>
+
+                              </div>
+                            </section>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+<!--Artwork by Title-->
+                  <div id="ArtworkByTitle" class="modal">
+                    <div class="modal-content">
+                      <div class="popup">
+                        <a class="close">&times;</a>
+                          <form method="POST" action="/reports-results">
+                            <section class="ArtworkByTitle">
+                              <h2>Artwork By Title:</h2>
+                                <div>
+                                  <label for="Title">Title</label>
+                                  <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                                  <br>
+                                  <input type="hidden" id= ButtonID name="ButtonID" value="2" >
+                                  <button type="submit" href="/">Search</button>
+                                </div>
+                              </section>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+<!--Artwork by Location-->
+                      <div id="ArtworkByLocation" class="modal">
+                        <div class="modal-content">
+                          <div class="popup">
+                            <a class="close">&times;</a>
+                              <form method="POST" action="/reports-results">
+                                <section class="ArtworkByLocation">
+                                  <h2>Art by Location:</h2>
+                                    <div>
+                                      <label for="City">City</label>
+                                              <select name="City" id="City">
+                                                  <option value="Anchorage">Anchorage</option>
+                                                  <option value="Nome">Nome</option>
+                                              </select>
+                                  <br>
+                                  <br>
+                                      <label for="Building">Building</label>
+                                              <select name="Building" id="Building">
+                                                  <option value="Anchorage1">Anchorage1</option>
+                                                  <option value="Nome1">Nome1</option>
+                                              </select>
+                                  <br>
+                                  <br>
+                                      <label for="Room">Room</label>
+                                      <input type="number" class="form-control" name="Room" id="Room" min="100" max="9999999" placeholder="Room Number">
+                                  <br>
+                                      <input type="hidden" id= ButtonID name="ButtonID" value="3" >
+                                      <button type="submit" href="/">Search</button>
+                                    </div>
+                                  </section>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+  <!--Artwork by Value-->
+                        <div id="ArtworkByValue" class="modal">
+                          <div class="modal-content">
+                            <div class="popup">
+                              <a class="close">&times;</a>
+                                <form method="POST" action="/reports-results">
+                                  <section class="ArtworkByValue">
+                                    <h2>Artwork By Value:</h2>
+                                      <div>
+                                        <label for="Value">What is it worth?</label>
+                                        <input type="number" class="form-control" name="Value" id="Value" min="0" max="9999999" step=".01" placeholder="Value">
+                                        <br>
+                                        <input type="hidden" id= ButtonID name="ButtonID" value="4" >
+                                        <button type="submit" href="/">Search</button>
+                                      </div>
+                                    </section>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+<!--Location by Artwork-->
+                            <div id="LocationbyArtwork" class="modal">
+                              <div class="modal-content">
+                                <div class="popup">
+                                  <a class="close">&times;</a>
+                                    <form method="POST" action="/reports-results">
+                                      <section class="LocationbyArtwork">
+                                        <h2>Artwork By Title:</h2>
+                                          <div>
+                                            <label for="Title">Artwork Name</label>
+                                            <input type="text" class="form-control" name="Title" id="Title"  maxlength="10" placeholder="Artwork Name">
+                                            <br>
+                                            <input type="hidden" id= ButtonID name="ButtonID" value="6" >
+                                            <button type="submit" href="/">Search</button>
+                                          </div>
+                                        </section>
+                                      </form>
+                                    </div>
+                                  </div>
+                                  </div>
+<!--Gift and Loan Ricipient -->
+                                  <div id="RecipientbyRecipientName" class="modal">
+                                    <div class="modal-content">
+                                      <div class="popup">
+                                        <a class="close">&times;</a>
+                                          <form method="POST" action="/reports-results">
+                                            <section class="RecipientbyRecipientName">
+                                              <h2>Artwork By Title:</h2>
+                                                <div>
+                                                <label for="Fname">Recipient's first name</label>
+                                                <input type="text" class="form-control" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
+                                            <br>
+                                                <label for="Lname">Recipient's last name</label>
+                                                <input type="text" class="form-control" name="Lname" id="Lname" minlength="1" maxlength="50" placeholder="Last Name">
+                                            <br>
+                                                <input type="hidden" id= ButtonID name="ButtonID" value="6" >
+                                                <button type="submit" href="/">Search</button>
+                                                </div>
+                                              </section>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+
+<script>
+     var modalBtns = [...document.querySelectorAll(".btn")];
+     modalBtns.forEach(function(btn){
+       btn.onclick = function() {
+         var modal = btn.getAttribute('data-modal');
+         document.getElementById(modal).style.display = "block";
+       }
+     });
+
+     var closeBtns = [...document.querySelectorAll(".close")];
+     closeBtns.forEach(function(btn){
+       btn.onclick = function() {
+         var modal = btn.closest('.modal');
+         modal.style.display = "none";
+       }
+     });
+
+     window.onclick = function(event) {
+       if (event.target.className === "modal") {
+         event.target.style.display = "none";
+       }
+     }
+   </script>
+ </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports</title>
-</head>
-<body>
-    
-    <hr>
-    <section id="report">
-        <form action="/reports-results" method="POST">
-            <h1 align="center"> Report Information</h1>
-            <section class="All Data">
-                <input type="button" value="Select All Data">
-            </section>
-
-            <h3>Artist Information</h3>
-            <section class="Artist Information">
-                    <input type="button" value="Select all artist info">
-                <br>
-                    <label for="Fname">Artist's first name:</label>
-                    <input type="text" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
-                <br>
-                    <label for="Lname">Artist's last name:</label>
-                    <input type="text" name="Lname" id="Lname" minlength="1" maxlength="50">
-                <br>
-                    <label for="Phone">Artist's phone number (with area code):</label>
-                    <input type="tel" name="Phone" id="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-                <br>
-                    <label for="Email">Email:</label>
-                    <input type="text" name="Email" id="Email">
-                <br>
-                    <label for="Address1">Artist's primary address:</label>
-                    <input type="text" name="Address1" id="Address1">
-                <br>
-                    <label for="Address2">Artist's alternate address:</label>
-                    <input type="text" name="Address2" id="Address2">
-                <br>
-                    <label for="City">Artist's city:</label>
-                    <input type="text" name="City" id="City" maxlength="50">
-                <br>
-                    <label for="State">Artists state:</label>
-                    <input type="text" name="State" id="State" minlength="3" maxlength="50">
-                <br>
-                    <label for="Zip">Artist's zip code:</label>
-                    <input type="text" name="Zip" id="Zip" minlength="5" maxlength="5">
-                <br>
-                    <label for="Shareholder">Is the artist a shareholder?</label>
-                    <input type="checkbox" name="Shareholder" id="Shareholder">
-            </section> 
-
-            <h3>Art Information</h3>
-            <section class="Art Information">
-                    <input type="button" value="Select all art info">
-                <br>
-                    <label for="Title">Name of the art piece:</label>
-                    <input type="text" name="Title" id="Title"  maxlength="10">
-                <br>
-                    <label for="Type">Material the artwork is made out of:</label>
-                    <input type="text" name="Type" id="Type"  maxlength="10">
-                <br>
-                    <label for="Collection">What is the name of collection?</label>
-                    <input type="text" name="Collection" id="Collection" maxlength="10">
-                <br>
-                    <label for="Media">Media:</label>
-                    <input type="text" name="Media" id="Media"  maxlength="10">
-                <br>
-                    <label for="Status">Status</label>
-                        <select name="Status" id="Status">
-                            <option value="Stored">Stored</option>
-                            <option value="Gifted">Gifted</option>
-                            <option value="Loaned">Loaned</option>
-                            <option value="Salvaged">Salvaged</option>
-                        </select>
-                <br>
-                    <label for="Purchase_Price">How much did we pay for it?</label>
-                    <input type="number" name="Purchase_Price" id="Purchase_Price" min="0" max="9999999" step=".01">
-                <br>
-                    <label for="Value">What is it worth?</label>
-                    <input type="number" name="Value" id="Value" min="0" max="9999999" step=".01">
-                <br>
-                    <label for="Acquireddt">When did we aquire this?</label>
-                    <input type="date" name="Acquireddt" id="Acquireddt">
-                <br>
-                    <label for="Description">Any extra information?</label>
-                    <textarea id="Description" name="Description" rows="3" cols="40"></textarea>
-            </section>
-
-            <h3>Art Location Information</h3>
-            <section class="Art Location">
-                    <input type="button" value="Select all art location info">
-                <br>
-                    <label for="City">City</label>
-                        <select name="City" id="City">
-                            <option value="Anchorage">Anchorage</option>
-                            <option value="Nome">Nome</option>
-                        </select>
-                <br>
-                    <label for="Building">Building</label>
-                        <select name="Building" id="Building">
-                            <option value="Anchorage1">Anchorage1</option>
-                            <option value="Nome1">Nome1</option>
-                        </select>
-                <br>
-                    <label for="Room">Room:</label>
-                    <input type="number" name="Room" id="Room" min="100" max="9999999">
-                <br>
-                    <label for="Description">Any extra information?</label>
-                    <textarea id="Description" name="Description" rows="3" cols="40"></textarea>
-            </section>
-
-            <h3>Recipient</h3>
-            <section class="Recipient">
-                    <input type="button" value="Select all recipient info">
-                <br>
-                    <label for="Fname">Recipient's first name:</label>
-                    <input type="text" name="Fname" id="Fname" minlength="1" maxlength="50" placeholder="First Name">
-                <br>
-                    <label for="Lname">Recipient's last name:</label>
-                    <input type="text" name="Lname" id="Lname" minlength="1" maxlength="50">
-                <br>
-                    <label for="Phone">Recipient's phone number (with area code):</label>
-                    <input type="tel" name="Phone" id="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-                <br>
-                    <label for="Email">Email:</label>
-                    <input type="text" name="Email" id="Email">
-                <br>
-                    <label for="Address1">Recipient's primary address:</label>
-                    <input type="text" name="Address1" id="Address1">
-                <br>
-                    <label for="Address2">Recipient's alternate address:</label>
-                    <input type="text" name="Address2" id="Address2">
-                <br>
-                    <label for="City">Recipient's city:</label>
-                    <input type="text" name="City" id="City" maxlength="50">
-                <br>
-                    <label for="State">Recipient's state:</label>
-                    <input type="text" name="State" id="State" minlength="3" maxlength="50">
-                <br>
-                    <label for="Zip">Recipient's zip code:</label>
-                    <input type="text" name="Zip[RZip][]" id="Zip" minlength="5" maxlength="5">
-            </section>
-
-            <h3>Gift</h3>
-            <section class="Gift">
-                    <input type="button" value="Select all">
-                <br>
-                    <label for="Gift">It was a gift</label>
-                    <input type="checkbox" name="Gift" id="Gift">
-            </section>
-
-            <h3>Loan</h3>
-            <section class="Loan"></section>
-                    <input type="button" value="Select all">
-                <br>
-                    <label for="Loan">It was a loan</label>
-                    <input type="checkbox" name="Loan" id="Loan">
-                <br>
-                    <label class="Return_Date">Return Date</label> 
-                    <input type="date" name="Acquireddt" id="Acquireddt">
-            </section>
-
-
-
-        <hr>
-        <section class="submission">
-            <input type="submit" id='query' value="Get Results">
-        </section>
-    </form>
-</body>
-</html>
-
-
-	<Section>
-	'Select * from *'
-	'Select * from Artist'
-	'Select * from Art'
-	'Select * from Location'
-	'Select * from Recipient'
-	'Select * from Gift'
-	'Select * from Loan'
-	</Section>
-	<Section>
-	'Artwork by Value'
-	'Artwork by Artist'
-	'Artwork by Art Name'
-	'Artwork by Location'
-	</Section> 
-	<Section>
-	'Location by Artwork'
-	</Section>
-	<section>
-	'Artist by Artist Name'
-	</section>
-	'Recipient by Recipient Name' 
-
-	Artwork report options
-
-	By Value (button)
-	Value = 900
-	submit (3)
-
-	By Artist (button)
-	Name =?
-	submit  (4)
-
-	By Art(button)
-	Art Name =?
-	submit
-
-	By Location(Button)
-	Location =?
-	submit
--->
